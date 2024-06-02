@@ -20,5 +20,6 @@ urlpatterns = [
     path('', include("mainView.urls")),
     path('campaigns', include("campaigns.urls")),
     path('templates', include("phishTemplates.urls")),
+    path('targets', include("phishingTargets.urls")),
     path('admin/', admin.site.urls),
 ]

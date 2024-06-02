@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mainView',
     'campaigns',
     'phishTemplates',
+    'phishingTargets',
 ]
 
 MIDDLEWARE = [
