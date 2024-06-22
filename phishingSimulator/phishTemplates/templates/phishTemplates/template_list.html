@@ -1,0 +1,40 @@
+{% extends 'mainView.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Phishing Email Templates</h1>
+    <a href="{% url 'create_template' %}" class="btn btn-primary mb-4">Create New Template</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Body</th>
+                <th scope="col">Attachment</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for template in templates %}
+            <tr>
+                <th scope="row">{{ template.id }}</th>
+                <td>{{ template.subject }}</td>
+                <td>{{ template.body|truncatewords:20 }}</td>
+                <td>
+                    {% if template.attachment %}
+                        <a href="{{ template.attachment.url }}" target="_blank">View Attachment</a>
+                    {% else %}
+                        No Attachment
+                    {% endif %}
+                </td>
+                <td>{{ template.created_at }}</td>
+                <td>{{ template.updated_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

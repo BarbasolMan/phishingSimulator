@@ -1,0 +1,22 @@
+{% extends 'mainView.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Create Phishing Email Template</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            {{ form.subject }}
+        </div>
+        <div class="form-group">
+            <label for="body">Body</label>
+            {{ form.body }}
+        </div>
+        <div class="form-group">
+            <label for="attachment">Attachment (optional)</label>
+            {{ form.attachment }}
+        </div>
+        <button type="submit" class="btn btn-primary">Create Template</button>
+    </form>
+</div>
+{% endblock %}
